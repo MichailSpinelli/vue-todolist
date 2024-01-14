@@ -24,20 +24,31 @@
 
 </head>
 <body>
-    
-    <header>
-        HEADER
-    </header>
 
-    <main>
-        MAIN
-    </main>
+    <div id="app">
 
-    <footer>
-        FOOTER
-    </footer>
+        <div>
+            <input type="text" v-model="newTodo" placeholder="Inserisci la nuova task">
 
+            <button @click="addTodo()">
+                aggiungi
+            </button>
+        </div>
+        <ul>
+            <li v-for="(todo, i) in todos" :class="todo.done ? 'todo-done' : ''">
+                {{ todo.text }}
+
+                <button @click="removeTodo(i)">
+                    X
+                </button>
+            </li>
+        </ul>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="text/javascript" src="./js/scripts.js"></script>
     
+
 </body>
 </html>
